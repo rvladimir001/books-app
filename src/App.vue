@@ -4,65 +4,53 @@
   </header>
   <div class="controls">
     <div
-      v-for="component in componentsNames"
-      :key="component.id"
+      v-for="link in linksNames"
+      :key="link.id"
       class="controls-btn"
-      :class="{ active: component.class }"
-      @click="selectComponent(component.component)"
+      :class="{ active: link.class }"
+      @click="selectComponent(link.link)"
     >
-      {{ component.name }}
+      <router-link :to="{ path: `${link.link}` }">{{ link.name }}</router-link>
     </div>
   </div>
-  <router-view />
-  <component
-    :is="name"
+  <router-view
     :dataList="basicData"
     @addBooks="addNewBook"
     @addAuthors="addNewAuthors"
-  ></component>
+  />
 </template>
 
 <script>
-import Books from "./components/Books.vue";
-import Authors from "./components/Authors.vue";
-import BooksForm from "./components/BooksForm.vue";
-import AuthorsForm from "./components/AuthorsForm.vue";
 import { addMockData, addMockPoster } from "./mock.js";
 import { onMounted, ref } from "vue";
 import axios from "axios";
 export default {
   name: "App",
-  components: {
-    Books,
-    Authors,
-    AuthorsForm,
-    BooksForm,
-  },
   setup() {
     const basicData = ref([]);
     let name = ref("Books");
-    const componentsNames = ref([
+    const linksNames = ref([
       {
         id: 1,
-        component: "Books",
+        link: "Books",
         name: "Книги",
         class: true,
       },
       {
         id: 2,
-        component: "Authors",
+        link: "Authors",
         name: "Авторы",
         class: false,
       },
       {
         id: 3,
-        component: "BooksForm",
+        link: "addbooks",
         name: "Добавить книгу",
         class: false,
       },
       {
         id: 4,
-        component: "AuthorsForm",
+        link: "addauthors",
         name: "Добавить автора",
         class: false,
       },
@@ -82,17 +70,16 @@ export default {
     const addNewAuthors = (author) => {
       basicData.value.unshift(author.value);
     };
-    const selectComponent = (component) => {
-      name.value = component;
-      for (const item of componentsNames.value) {
-        item.class = item.component === component;
+    const selectComponent = (link) => {
+      for (const item of linksNames.value) {
+        item.class = item.link === link;
       }
     };
     return {
       getBooks,
       basicData,
       name,
-      componentsNames,
+      linksNames,
       selectComponent,
       addNewBook,
       addNewAuthors,
@@ -130,6 +117,11 @@ body {
 .controls-btn:hover {
   border-bottom: 1px solid #000;
   cursor: pointer;
+}
+
+.controls-btn a {
+  color: #000000;
+  text-decoration: none;
 }
 .active {
   font-weight: bold;
