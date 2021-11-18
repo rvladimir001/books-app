@@ -13,6 +13,7 @@
       {{ component.name }}
     </div>
   </div>
+  <router-view />
   <component
     :is="name"
     :dataList="basicData"
@@ -29,7 +30,6 @@ import AuthorsForm from "./components/AuthorsForm.vue";
 import { addMockData, addMockPoster } from "./mock.js";
 import { onMounted, ref } from "vue";
 import axios from "axios";
-
 export default {
   name: "App",
   components: {
@@ -105,7 +105,6 @@ export default {
 html {
   height: 100%;
 }
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -114,12 +113,10 @@ html {
   color: #2c3e50;
   height: 100%;
 }
-
 body {
   margin: 0 !important;
   height: 100%;
 }
-
 .controls {
   display: flex;
   justify-content: space-around;
@@ -127,79 +124,64 @@ body {
   height: 40px;
   align-items: center;
 }
-
 .controls-btn {
   border-bottom: 1px solid #dae2e4;
 }
-
 .controls-btn:hover {
   border-bottom: 1px solid #000;
   cursor: pointer;
 }
-
 .active {
   font-weight: bold;
 }
-
 header {
   background: linear-gradient(90deg, #a64fc5, #4f54e6);
   text-align: left;
   padding: 20px;
 }
-
 h1 {
   color: #fff;
 }
-
 table {
   width: 90%;
   margin: 0 auto;
   border-collapse: collapse;
   color: #000;
 }
-
 th {
   border-bottom: 2px solid #a9a9a9;
   padding: 10px;
   text-align: center;
 }
-
 td {
   padding: 10px;
 }
-
 tr:nth-child(odd) {
   background: white;
 }
-
 tr:nth-child(even) {
   background: #dae2e4;
 }
-
 ul li {
   margin: 10px;
   list-style-type: none;
 }
-
 ul {
   margin-left: 0;
   padding-left: 0;
 }
-
 ul li input,
 ul li textarea {
   width: 350px;
   border: 1px solid #dae2e4;
   padding: 5px;
 }
-
 ul li textarea {
   max-width: 350px;
   min-width: 350px;
   min-height: 100px;
   max-height: 100px;
 }
-
 ul li input:active,
 ul li input:hover,
 ul li input:focus,
@@ -209,7 +191,6 @@ ul li textarea:focus {
   outline: 0;
   outline-offset: 0;
 }
-
 .btn {
   width: 100px;
   height: 20px;
@@ -218,19 +199,15 @@ ul li textarea:focus {
   padding: 10px;
   border-radius: 3px;
 }
-
 .btn:hover {
   box-shadow: inset 0px 0px 16px 13px rgba(355, 355, 355, 0.3);
 }
-
 .btn:active {
   box-shadow: inset 0px 0px 6px 3px rgba(0, 0, 0, 0.3);
 }
-
 .no-data {
   padding: 30px;
 }
-
 .control-panel {
   display: flex;
   justify-content: space-around;
