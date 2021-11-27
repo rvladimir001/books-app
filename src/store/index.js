@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
-import { addMockData, addMockPoster } from "../mock";
+import {addMockData, addMockPoster} from "../mock";
 
 export default createStore({
   state: {
