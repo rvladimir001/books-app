@@ -132,11 +132,9 @@ export default {
   height: 100%;
   color: #fff;
 }
-
 .saved-process div {
   margin-top: 20%;
 }
-
 .alert {
   color: red;
   font-size: 11px;
