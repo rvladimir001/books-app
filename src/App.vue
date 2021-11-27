@@ -13,7 +13,7 @@
       <router-link :to="{ path: `${link.link}` }">{{ link.name }}</router-link>
     </div>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <script>

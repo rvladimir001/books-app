@@ -36,7 +36,7 @@
 
 <script>
 import { useStore } from "vuex";
-import {computed} from "vue";
+import { computed } from "vue";
 export default {
   name: "Authors",
   setup() {

@@ -113,7 +113,7 @@ export default {
       };
       if (validator()) {
         saveStatus.value = false;
-        store.commit("addBook", newBook)
+        store.commit("addBook", newBook);
         setTimeout(() => {
           saveStatus.value = true;
         }, 500);

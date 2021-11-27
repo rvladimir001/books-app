@@ -100,7 +100,7 @@ export default {
       };
       if (validator()) {
         saveStatus.value = false;
-        store.commit("addAuthor", newAuthor)
+        store.commit("addAuthor", newAuthor);
         setTimeout(() => (saveStatus.value = true), 500);
       }
     };
